@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Edit Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+<form class="formValidate" id="formValidate" method="post" novalidate="novalidate" class="col s12">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="mdi-action-account-circle prefix"></i>
+            <input name="username" id="username" type="text" value="<?php echo $username; ?>" data-error=".errorTxt1" readonly>
+            <label for="username" class="">Username</label>
+            <div class="errorTxt1"></div>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="mdi-communication-email prefix"></i>
+            <input name="email" id="email" type="email" value="<?php echo $email; ?>" data-error=".errorTxt3" readonly>
+            <label for="email" class="">Email</label>
+            <div class="errorTxt3"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="mdi mdi-phone prefix"></i>
+            <input name="phone" id="phone" type="number" value="<?php echo $contact; ?>" data-error=".errorTxt5" readonly>
+            <label for="phone" class="">Contact</label>
+            <div class="errorTxt5"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="mdi-action-home prefix"></i>
+            <textarea name="address" id="address" class="materialize-textarea validate" data-error=".errorTxt6" readonly><?php echo $address; ?></textarea>
+            <label for="address" class="">Address</label>
+            <div class="errorTxt6"></div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn" id="editButton">Edit</button>
+        <button type="submit" class="btn" id="submitButton" disabled>Submit</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('editButton').addEventListener('click', function() {
+        var inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(function(input) {
+            input.removeAttribute('readonly');
+        });
+        document.getElementById('submitButton').removeAttribute('disabled');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.79/theme-default.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formatter/0.1.5/jquery.formatter.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="formValidate">
+        <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" data-error=".errorTxt1">
+            <div class="errorTxt1"></div>
+        </div>
+        <div>
+            <label for="cc_number">Credit Card Number:</label>
+            <input type="text" id="cc_number" name="cc_number" data-error=".errorTxt2">
+            <div class="errorTxt2"></div>
+        </div>
+        <div>
+            <label for="cvv_number">CVV Number:</label>
+            <input type="text" id="cvv_number" name="cvv_number" data-error=".errorTxt3">
+            <div class="errorTxt3"></div>
+        </div>
+        <div>
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" name="contact">
+        </div>
+        <div>
+            <label for="payment_type">Payment Type:</label>
+            <select id="payment_type" name="payment_type">
+                <option value="Wallet">Wallet</option>
+                <option value="Cash On Delivery">Cash On Delivery</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $("#formValidate").validate({
+            rules: {
+                address: {
+                    required: true,
+                    minlength: 5
+                },
+                cc_number: {
+                    required: true,
+                    minlength: 16,
+                },
+                cvv_number: {
+                    required: true,
+                    minlength: 3,
+                },
+                contact: {
+                    required: true,
+                    digits: true,
+                    minlength: 9,
+                    maxlength: 10
+                }
+            },
+            messages: {
+                address: {
+                    required: "Enter an address",
+                    minlength: "Enter at least 5 characters"
+                },
+                cc_number: {
+                    required: "Please provide a card number",
+                    minlength: "Enter at least 16 digits",
+                },
+                cvv_number: {
+                    required: "Please provide a CVV number",
+                    minlength: "Enter at least 3 digits",
+                },
+                contact: {
+                    required: "Please provide a phone number",
+                    digits: "Please enter only digits",
+                    minlength: "Phone number must be at least 9 digits",
+                    maxlength: "Phone number cannot be more than 10 digits"
+                },
+            },
+            errorElement: 'div',
+            errorPlacement: function(error, element) {
+                var placement = $(element).data('error');
+                if (placement) {
+                    $(placement).append(error);
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+
+        $('#cc_number').formatter({
+            'pattern': '{{9999}}-{{9999}}-{{9999}}-{{9999}}',
+            'persistent': true
+        });
+        $('#cvv_number').formatter({
+            'pattern': '{{9}}-{{9}}-{{9}}',
+            'persistent': true
+        });
+        $('#payment_type').change(function() {
+            if ($(this).val() === 'Cash On Delivery') {
+                $("#cc_number").prop('disabled', true);
+                $("#cvv_number").prop('disabled', true);		  
+            }
+            if ($(this).val() === 'Wallet'){
+                $("#cc_number").prop('disabled', false);
+                $("#cvv_number").prop('disabled', false);	
+            }
+        });
+    </script>
+</body>
+</html>

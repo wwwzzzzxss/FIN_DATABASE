@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* 確保頁面最小高度為視窗高度 */
+}
+
+.tab-menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #c7cb85;
+    padding: 10px 0;
+    border-bottom: 2px solid #ccc;
+    position: sticky;
+    top: 50;
+    z-index: 1000;
+    border-radius: 5px;
+}
+.tab-menu div {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.tab-menu div.active {
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
+.menu-section {
+    
+    padding: 20px;
+}
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #c7cb85;
+    border-radius: 5px;
+    width: 100%; /* 确保项目信息和数量控制器能水平排列 */
+    box-sizing: border-box; /* 确保padding和border在计算宽度时包含在内 */
+    color: #ffffff
+}
+.item-info {
+    flex: 1;
+    min-width: 0;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+.quantity-controls button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #c7cb85;
+}
+.quantity-controls input {
+    width: 50px;
+    text-align: center;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.options select {
+    margin-bottom: 5px;
+}
+
+.H3{
+    color: white;
+    font-weight:bold;
+}
+
+/*
+#####################################
+#####################################
+*/
+
+#sidebar {
+    width: 250px;
+    height: 300vh;
+    background-color:  rgb(102, 5, 5);
+    color: white;
+    transition: 1s;
+}
+
+#sidebar ul li a{
+    padding: 10px;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+    color: indigo;
+    background: #fff;
+}
+
+#sidebar.active {
+    margin-left: -200px;
+}
+
+.container-all {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+}
+
+.container-right{
+    background-color: rgb(3, 51, 27);
+    width: 80%;
+    height: 300vh;
+    text-align: center;
+    padding: 30px;
+    text-align: center;
+    padding: 30px;
+}
+
+.order-btn {
+    position: relative;
+    top: 1%;
+    left: 200px;
+    background-color: rgb(12,10,15);
+    color:  white;
+    border: none;
+    font-size:  15px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.collapse-btn {
+    position: relative;
+    top: 1%;
+    left: 200px;
+    background-color: rgb(12,10,15);
+    color:  white;
+    border: none;
+    font-size:  30px;
+    padding: 5px;
+}
+
+.collapse-btn:hover{
+    background-color:  rgb(179, 19, 94);
+    transition: 0.2s;
+}
+
+.fas,
+.far,
+.fab {
+    float: right;
+    position: relative;
+}

@@ -1,0 +1,85 @@
+/* 侧边悬浮框 */
+.floatBox {
+    position: fixed;
+    top: 40%;
+    right: 2%;
+    width: 70px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 40px 0px rgba(72, 72, 72, 0.04);
+    border-radius: 4px;
+}
+ 
+.iconbox1 {
+    height: 81px;
+    width: 70px;
+    position: relative;
+}
+ 
+.iconbox1::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/icon/right/zx2.png)no-repeat center center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+ 
+.iconbox1::before {
+    content: '';
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: url(../images/icon/right/zx.png)no-repeat center center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+ 
+.weixin {
+    position: absolute;
+    width: 150px;
+    height: 170px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 40px 0px rgba(72, 72, 72, 0.04);
+    border-radius: 4px;
+    left: -154px;
+    top: 0;
+    display: none;
+    padding: 21px 25px 24px;
+}
+ 
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ 
+.info>img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #0092FF;
+}
+ 
+.info>p {
+    width: 105px;
+    height: 13px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #262626;
+    margin-top: 12px;
+}
+ 
+.iconbox1:hover::before {
+    display: block;
+}
+ 
+.iconbox1:hover::after {
+    display: none;
+}
+ 
+.iconbox1:hover .weixin {
+    display: block;
+}

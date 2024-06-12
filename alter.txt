@@ -1,0 +1,129 @@
+admin-page.php:新增餐點
+all-order.php:顯示所有訂單
+* all-tickets.php:顯示所有回報問題
+aside:側邊攔
+confirm-order.php:顯示確認餐點和填的資料
+details.php:顯示個人基本資料
+index.php 選擇外送或自取
+order_food.php:點餐介面
+orders.php:訂單查詢
+password_change.php:修改密碼
+place-order.php:填寫購買個人資料
+register.php註冊
+verify:驗證身分開通卡號
+worktable.php:工作時間表顯示員工
+
+做完的0607
+	菜單頁面 甜度冰塊
+	資料 read and write 改了儲存方式
+	能夠將資料給資料庫
+	以及訂單的餐點全部成功顯示
+	0607.php 點餐頁面
+	test2.php 整合餐點和側邊，讓介面完善
+
+
+
+做完的0608 :
+	菜單:flexbox調整排版:
+	字體大小
+	框框
+	背景、字體、border顏色
+
+	時間的部分文字沒有顯示:多加一個label
+
+	資料庫砍掉重做:修復每個頁面的各種問題，問題都跟sql有關
+
+做完的0609:
+	1.確認能輸入的部分都沒有異常
+	2.訂單顯示正常
+	3.訂單可以取消功能
+	4.提示輸入不正確的地方
+	5.跳轉網頁問題要exit()
+
+
++解決
+*半處理
+/沒處理
+
+0610要做的:
+	/1.個人資料:details.php 可以修改當點subit按鈕
+	2.aside.php新增verify.php
+	3.aside.php訂單部分 顧客和員工能看到的不同 顧客只能看orders.php
++	4.將footer顯示部分刪除
+	5.確認回報問題輸入和輸出。 tickets.php type 沒解決
+	+6.drinks noodles內容為空。 drinks noodles table感覺沒啥用
+	7.noodle種類 菜單選擇
+	8.修改description 和 address 資料型態 db裡
+	9.將order_detail改為int型態
+	10.tickets_details刪除
+	11.cvv 改為int影響內容大
+	12.all-tickets.php顯示
+	13.顧客的:ticket顯示
+
+0610:插入正確沒顯示資料:資料太多先刪 某個
+
+
+
+
+不了解css運作方式=>對於定義不了解，要先從範例開始
+
+管理者查詢訂單 側邊攔
+1.修改登入註冊
+2.修改個人資訊
+3.外來鍵補上
+4.noodel種類
+5.訂單連結
+
+
+修register.php
+修個人資訊
+relation schema
+er diagram
+書面報告
+
+查詢
+
+
+
+
+
+
+//////////////////////////////
+Change_password.php:
+SELECT password FROM users WHERE id='$user_id';
+查詢該用戶的密碼
+
+get_orders.php:
+SELECT * FROM orders WHERE status LIKE '$status';
+
+
+order-router.php:
+SELECT * FROM items WHERE it_id = "$key";
+查詢it_id為"$key"的全部資料
+	
+router.php:
+SELECT * FROM users WHERE username='$username' AND password='$password' AND role='Administrator' AND not deleted;");
+SELECT * FROM users WHERE username='$username' AND password='$password' AND role='Customer';");
+
+show_workschedule.php:
+SELECT E.Name, W.day, W.Shift FROM employees AS E, workschedules AS W
+WHERE E.EmployeeID = W.employee_id;
+
+
+
+show-card-num.php
+SELECT password FROM users WHERE id='$user_id';
+
+SELECT cvv,number FROM wallet_details WHERE customer_id='$user_id';
+
+
+
+!!!orders.php還沒做
+
+WANT order_time pick_time
+NOW date 
+
+details.php  action="routers/details-router.php"
+
+orders table的status出錯:無法做 需要用判斷外帶或自取
+users table deleted 想刪除

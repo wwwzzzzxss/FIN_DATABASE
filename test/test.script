@@ -1,0 +1,12 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var shouldDisableInput = <?php echo json_encode($shouldDisableInput); ?>;
+    var addressInput = document.getElementById('address');
+    
+    if (shouldDisableInput) {
+      addressInput.disabled = true;
+    } else {
+      addressInput.disabled = false;
+    }
+  });
+</script>
